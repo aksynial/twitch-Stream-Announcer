@@ -168,8 +168,8 @@ class loginWindow():
         spacerItem = QtGui.QSpacerItem(20, 30, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Fixed)
         self.gridLayout.addItem(spacerItem, 2, 0, 1, 1)
         self.continueButton = QtGui.QPushButton(self.centralwidget)
-        self.continueButton.setMinimumSize(QtCore.QSize(150, 50))
-        self.continueButton.setMaximumSize(QtCore.QSize(150, 50))
+        self.continueButton.setMinimumSize(QtCore.QSize(200, 50))
+        self.continueButton.setMaximumSize(QtCore.QSize(200, 50))
         self.continueButton.setObjectName("continueButton")
         self.gridLayout.addWidget(self.continueButton, 6, 0, 1, 1)
         spacerItem1 = QtGui.QSpacerItem(20, 75, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Fixed)
@@ -190,8 +190,8 @@ class loginWindow():
         spacerItem2 = QtGui.QSpacerItem(20, 30, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Fixed)
         self.gridLayout.addItem(spacerItem2, 5, 0, 1, 1)
         self.loginButton = QtGui.QPushButton(self.centralwidget)
-        self.loginButton.setMinimumSize(QtCore.QSize(150, 50))
-        self.loginButton.setMaximumSize(QtCore.QSize(150, 50))
+        self.loginButton.setMinimumSize(QtCore.QSize(200, 50))
+        self.loginButton.setMaximumSize(QtCore.QSize(200, 50))
         self.loginButton.setObjectName("loginButton")
         self.gridLayout.addWidget(self.loginButton, 3, 0, 1, 1)
         self.verticalLayout_2.addLayout(self.gridLayout)
@@ -299,6 +299,7 @@ def showMainGui():
 
 def detectLoginSuccess(self):
 	detectSuccess = webViewUi.webView.url().toString()
+	print detectSuccess
 	if "#access_token" in detectSuccess:
 		import re
 		result = re.search("token=(.*)&", detectSuccess)
@@ -338,7 +339,7 @@ if __name__ == "__main__":
     appClientID = "og75lgi0c66xgw6uqsq606xsdc3tnpf"
     redirectURI = "http://www.twitch.tv/"
     scopeList = "user_read+channel_read+user_follows_edit"
-    userName = "DUH HARRO"
+    userName = ""
 
     displayLoginWindow.connect(loginUi.loginButton, QtCore.SIGNAL("clicked()"), removeLoginWindow)
     displayLoginWindow.connect(webViewUi.webView, QtCore.SIGNAL("urlChanged(const QUrl&)"), detectLoginSuccess)
